@@ -21,7 +21,7 @@
 
 +-----------------------------+
 | BagIterator<T>              |
-| <<implements Iteratable<T>> |
+| <<implements Iterator<T>> |
 +-----------------------------+
 | - current : Node            |
 +-----------------------------+
@@ -29,7 +29,7 @@
 | + next() : T                |
 +-----------------------------+
 
-Bag Pseudocode:
+Bag Program Pseudocode:
 
 
 #####
@@ -124,7 +124,7 @@ Class Bag (type T)
    #####
    // Create an iterator class and function for ease of traversing the linked list
    Class BagIterator
-      variable current : Node = first  // Nested class allows access to Bag's "first" member
+      variable current : Node<T> = first  // Nested class allows access to Bag's "first" member
 
 	  // If 'current' is null, then the iteration is complete
       function hasNext() : boolean
@@ -173,8 +173,8 @@ Class BagTest
 	   create Array wordList : String = {"this", "is", "a", "test", "a", "is", "this", "is"}
 	   
 	   // Add all words to the bag
-	   for each item in wordList
-	      myBag.add(item)
+	   for each word in wordList
+	      myBag.add(word)
 	 
 	   // Print the bag contents
 	   printBag(myBag)
@@ -189,7 +189,7 @@ Class BagTest
 	   countTest("this", myBag)
 	   countTest("is", myBag)
 	   
-	   // Remove element
+	   // Remove item
 	   myBag.remove("is")
 	   
 	   // Print the bag
