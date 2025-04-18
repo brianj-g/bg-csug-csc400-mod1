@@ -36,6 +36,7 @@ public class BagTest {
 		}
 		
 		// Print out the initial contents of the Bag
+		System.out.println();
 		System.out.println("Printing the initial Bag:");
 		printBag(myBag);
 		System.out.println();
