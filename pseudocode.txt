@@ -13,10 +13,20 @@
 +-----------------------------+
 
 +-----------------------------+
-| Node<T>                        |
+| Node<T>                     |
 +-----------------------------+
 | - item : T                  |
 | - next : Node               |
++-----------------------------+
+
++-----------------------------+
+| BagIterator<T>              |
+| <<implements Iteratable<T>> |
++-----------------------------+
+| - current : Node            |
++-----------------------------+
+| + hasNext() : Boolean       |
+| + next() : T                |
 +-----------------------------+
 
 Bag Pseudocode:
@@ -28,6 +38,7 @@ Class Bag (type T)
    variable num : integer
 
    #####
+   // Add a node to the linked list
    function add(item : T)
    	create Node node
       node.item = item
@@ -37,9 +48,17 @@ Class Bag (type T)
    end function
 
    #####
+   // Remove a node from the linked list
    function remove(item : T)
       // Check for empty bag
       if first is null: return
+      
+      // Check to see if item is the first node
+      if first.item == item
+   	     set first = first.next
+         set num = num - 1
+         return
+      
 
       create Node current = first.next
       create Node previous = first
@@ -62,11 +81,12 @@ Class Bag (type T)
    end function
    
    #####
+   // 
    function contains(item : T) : boolean
       create Node current = first
       
       while current != null
-         if current.item = item
+         if current.item == item
          	return true
          
          // advance node
@@ -93,15 +113,40 @@ Class Bag (type T)
       // return the count of item
       return c
    end function
+   
+   #####
+   // Create an inner class for the linked list nodes
+	Class Node (type T)
+	   variable item : T
+	   variable next : Node
+	end class
+   
+   #####
+   // Create an iterator class and function for ease of traversing the linked list
+   Class BagIterator
+      variable current : Node = first  // Nested class allows access to Bag's "first" member
+
+	  // If 'current' is null, then the iteration is complete
+      function hasNext() : boolean
+         return current != null
+      end function
+
+	  // return the current item
+      function next() : T
+         if not hasNext()
+            throw an error
+         set item = current.item
+         set current = current.next
+         return item
+      end function
+   end class
+   
+   // Function returns an instance of the iterator class
+   function iterator() : Iterator<T>
+      return new BagIterator
+   end function
 	
 end class
-
-#####
-Class Node (type T)
-   variable item : T
-   variable next : Node
-end class
-
 
 Class BagTest
    function printBag(bag : Bag)
@@ -117,7 +162,7 @@ Class BagTest
    end function
    
    function countTest(myString : String, myBag : Bag)
-      print "Bag contains {myBag.count()} occurrences of '{myString}'"
+      print "Bag contains {myBag.count(myString)} occurrences of '{myString}'"
    end function
         
    function main
