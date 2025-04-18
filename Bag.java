@@ -2,6 +2,10 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/*
+* The Bag class is the implementation of a Bag ADT using a linked list, and uses a generic type variable for flexibility.
+*  I have also included an iterator for ease of traversing the items from external methods.
+*/
 public class Bag<T> implements Iterable<T> {
 	
 	Node first;  // First item in the linked list
@@ -90,7 +94,7 @@ public class Bag<T> implements Iterable<T> {
 		Node next;
 	}
 	
-	// Nested class to implement the iterator
+	// Nested class to implement the iterator.  This makes it simpler to cycle through instances of the Bag in external methods (like main)..
 	class BagIterator implements Iterator<T>{
 		Bag<T>.Node current = first; // Nested class allows access to Bag's members
 		
@@ -116,6 +120,7 @@ public class Bag<T> implements Iterable<T> {
 	}
 }
 
+// Including a separate BagMain class to perform test functions and main method
 class BagMain {
 	
 	// Iterate through the bag and print each item
