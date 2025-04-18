@@ -19,8 +19,7 @@ A Bag is a collection that allows **duplicate elements** and does **not enforce 
 ## File Structure
 
 ```
-Bag.java       // Implementation of the Bag<T> class and custom iterator
-BagTest.java   // Demonstrates usage of the Bag class and validates functionality
+Bag.java       // Contains both the Bag<T> class and the BagMain class for testing
 ```
 
 ## Usage
@@ -28,14 +27,14 @@ BagTest.java   // Demonstrates usage of the Bag class and validates functionalit
 1. **Compile and run the project**:
 
 ```bash
-javac Bag.java BagTest.java
-java BagTest
+javac Bag.java
+java BagMain
 ```
 
 2. **Expected Output** (sample):
 
 ```
-Printing the initial Bag:
+Printing the initial Bag...
 is
 this
 is
@@ -45,13 +44,13 @@ a
 is
 this
 
-Testing the 'contains()' method:
+Testing the 'contains()' method...
 Bag contains 'test'
 Bag contains 'a'
 Bag does NOT contain 'not'
 Bag does NOT contain 'the'
 
-Testing the 'count()' method:
+Testing the 'count()' method...
 Bag contains 2 occurences of 'this'
 Bag contains 3 occurences of 'is'
 Bag contains 2 occurences of 'a'
@@ -66,7 +65,8 @@ a
 a
 is
 this
-Testing the successful removal:
+
+Testing the successful removal...
 Bag does NOT contain 'test'
 Bag contains 0 occurences of 'test'
 ```
