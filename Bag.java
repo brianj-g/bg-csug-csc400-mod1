@@ -25,7 +25,7 @@ public class Bag<T> implements Iterable<T> {
 		if (first == null) return;
 		
 		// Check to see if item is the first node and remove it from the list if so
-		if (first.item == item) {
+		if (first.item.equals(item)) {
 			first = first.next;
 			num--;
 			return;
@@ -38,7 +38,7 @@ public class Bag<T> implements Iterable<T> {
 		// Traverse through the linked list until either found or no more items
 		while (current != null) {
 			// Remove the item and end loop if found
-			if (current.item == item) {
+			if (current.item.equals(item)) {
 				previous.next = current.next;
 				num--;
 				return;
@@ -54,7 +54,7 @@ public class Bag<T> implements Iterable<T> {
 		Node current = first;
 		
 		while(current != null) {
-			if (current.item == item) {
+			if (current.item.equals(item)) {
 				return true;
 			}
 			// advance to next node if not found
@@ -73,7 +73,7 @@ public class Bag<T> implements Iterable<T> {
 		Node current = first;
 		while (current != null) {
 			// Increment the counter any time the item is found
-			if(current.item == item) {
+			if(current.item.equals(item)) {
 				c++;
 			}
 			// Advance to the next node
