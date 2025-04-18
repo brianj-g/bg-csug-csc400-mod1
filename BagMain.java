@@ -1,5 +1,5 @@
 
-public class BagTest {
+public class BagMain {
 	
 	// Iterate through the bag and print each item
 	static <T> void printBag(Bag<T> bag) {
@@ -37,12 +37,12 @@ public class BagTest {
 		
 		// Print out the initial contents of the Bag
 		System.out.println();
-		System.out.println("Printing the initial Bag:");
+		System.out.println("Printing the initial Bag...");
 		printBag(myBag);
 		System.out.println();
 		
 		// Test the Bag "contains()" method
-		System.out.println("Testing the 'contains()' method:");
+		System.out.println("Testing the 'contains()' method...");
 		containsTest("test", myBag);
 		containsTest("a", myBag);
 		containsTest("not", myBag);
@@ -50,7 +50,7 @@ public class BagTest {
 		System.out.println();
 		
 		// Test Bag's "count()" method
-		System.out.println("Testing the 'count()' method:");
+		System.out.println("Testing the 'count()' method...");
 		countTest("this", myBag);
 		countTest("is", myBag);
 		countTest("a", myBag);
@@ -62,9 +62,10 @@ public class BagTest {
 		myBag.remove("test");
 		System.out.println("New Bag contents:");
 		printBag(myBag);
+		System.out.println();
 		
 		// Check the contains() and count() methods again
-		System.out.println("Testing the successful removal:");
+		System.out.println("Testing the successful removal...");
 		containsTest("test", myBag);
 		countTest("test", myBag);
 
