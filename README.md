@@ -1,22 +1,17 @@
 # Java Bag Data Structure (Multiset)
 
-This project is a Java implementation of a **Bag Abstract Data Type (ADT)**, also known as a **multiset**.  
+This project is a Java implementation of a **Bag Abstract Data Type (ADT)**.  
 A Bag is a collection that allows **duplicate elements** and does **not enforce any particular order**.
 
 ## Features
 
 - Add elements to the Bag
 - Remove a single occurrence of an element
-- Check if an element exists
+- Check if an element exist
 - Count how many times an element appears
-- Iterate through the Bag using enhanced `for-each` loop
+- Iterate through the Bag using Java's enhanced `for-each` loop
 
-## Technologies
-
-- Java 17+
-- Standard `java.util.Iterator` interface
-
-## File Structure
+## Files
 
 ```
 Bag.java       // Contains both the Bag<T> class and the BagMain class for testing
@@ -31,7 +26,7 @@ javac Bag.java
 java BagMain
 ```
 
-2. **Expected Output** (sample):
+2. **Expected Output**:
 
 ```
 Printing the initial Bag...
@@ -70,19 +65,3 @@ Testing the successful removal...
 Bag does NOT contain 'test'
 Bag contains 0 occurences of 'test'
 ```
-
-## Pseudocode
-
-A fully commented and structured pseudocode version of the Bag and its operations is also included as part of this project for conceptual clarity.
-
-## Learning Outcomes
-
-- Reinforced understanding of Abstract Data Types and linked list implementations
-- Gained experience using generics and iterators in Java
-- Practiced clean design, encapsulation, and unit-level testing
-
-## Author
-
-**Brian Gunther**  
-CSU Global | CSC400 – Data Structures and Algorithms  
-April 2025
